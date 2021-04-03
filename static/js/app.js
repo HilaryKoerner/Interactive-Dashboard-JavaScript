@@ -1,4 +1,7 @@
-d3.json("data/samples.json").then((data)=> {
-    console.log(data)
+d3.json("data/samples.json").then((sampleData)=> {
+    console.log(sampleData);
+    var data = sampleData;
 });
+
+
 
