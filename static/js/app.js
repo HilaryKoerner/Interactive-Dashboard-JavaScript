@@ -25,17 +25,15 @@ d3.json("data/samples.json").then((data)=> {
     });
 });
 
-
-//use this to build out metadata
+//loop thorugh data to grab data, create functions to be called later
 function optionChanged(id) {
     for (var i=0; i<metadata.length; i++) {
         if (metadata[i].id == id) {
             break;
         }
     }
-
-    //clears demographic chart
-    refreshDemo(metadata[i]);
+    //create demographic chart
+    createDemo(metadata[i]);
     //create plotly bar chart
     createBarChart(samples[i], names[i]);
     //create bubblechart
@@ -45,37 +43,40 @@ function optionChanged(id) {
 
 };
  
-function refreshDemo(data) {
-    console.log("hello from refresh demo");
+function createDemo(data) {
+    console.log("hello from create demo");
     console.log(data.id);
     console.log(data.ethnicity);
     console.log(data.gender);
-    console.log(data.age);}
-
-function createBarChart(data, names) {
-    console.log("hello from create bar");
-    console.log(data);
-    var trace1 = {
-        x: data.otu_ids,
-        y: data.sample_values,
-        type: "bar",
-        orientation: "h"
-      };
-      
-      var data = [trace1];
-      
-      var layout = {
-        title: "'Bar' Chart"
-      };
-      
-      Plotly.newPlot("bar", data, layout);
-      
+    console.log(data.age);
 }
 
-// function createBubble(data, names) {
-//     console.log("hello from create bubble");
-//     console.log(data);
-// }
+function createBarChart(data) {
+    console.log("hello from create bar");
+    console.log(data.id);
+    console.log(data.otu_ids);
+    console.log(data.sample_values);
+    console.log(data.otu_labels);
+
+    var trace1 = {
+        x: data.sample_values.slice(0,10).reverse(),
+        y: data.otu_ids.slice(0,10).map(otu=> `OTU${otu}`).reverse(),
+        text: data.otu_labels.slice(0,10).reverse(),
+        type: "bar",
+        orientation: "h"
+    }
+    var data = [trace1];
+
+    var layout = {
+      title: "OTU Chart"
+    };
+    Plotly.newPlot("bar", data, layout);
+};
+
+function createBubble(data, names) {
+    console.log("hello from create bubble");
+    console.log(data);
+}
 
 
 //
