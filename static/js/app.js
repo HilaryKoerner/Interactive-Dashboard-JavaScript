@@ -1,14 +1,89 @@
+var metadata; 
+var names; 
+var samples;
 d3.json("data/samples.json").then((data)=> {
-    var samples = data.samples;
-    console.log(samples);
-    var names = data.names;
-    console.log(names);
-    var meta = data.metadata;
-    console.log(meta);
-    var ids = data.samples;
-    console.log(ids); 
 
+     samples = data.samples;
+    // console.log(samples);
+     names = data.names;
+    // console.log(names);
+     metadata = data.metadata;
+    // console.log(meta);
+    // console.log(Object.keys(samples));
+    // console.log(Object.values(samples));
+    // console.log(Object.entries(samples));
+
+    var drop = document.getElementById("selDataset"); 
+
+    names.forEach(function(item) {
+        var o = document.createElement("option");
+        var attr = document.createAttribute("value");
+        attr.value = item;
+        o.setAttributeNode(attr);
+        o.text=item;
+        drop.appendChild(o);
+    });
 });
+
+
+//use this to build out metadata
+function optionChanged(id) {
+    for (var i=0; i<metadata.length; i++) {
+        if (metadata[i].id == id) {
+            break;
+        }
+    }
+
+    //clears demographic chart
+    refreshDemo(metadata[i]);
+    //create plotly bar chart
+    createBarChart(samples[i], names[i]);
+    //create bubblechart
+    createBubble(samples[i], names[i]);
+
+    console.log(i);
+
+};
+ 
+function refreshDemo(data) {
+    console.log("hello from refresh demo");
+    console.log(data.id);
+    console.log(data.ethnicity);
+    console.log(data.gender);
+    console.log(data.age);}
+
+function createBarChart(data, names) {
+    console.log("hello from create bar");
+    console.log(data);
+    var trace1 = {
+        x: data.otu_ids,
+        y: data.sample_values,
+        type: "bar",
+        orientation: "h"
+      };
+      
+      var data = [trace1];
+      
+      var layout = {
+        title: "'Bar' Chart"
+      };
+      
+      Plotly.newPlot("bar", data, layout);
+      
+}
+
+// function createBubble(data, names) {
+//     console.log("hello from create bubble");
+//     console.log(data);
+// }
+
+
+//
+// d3.json("data/samples.json").then((data)=> {
+
+
+
+
 
 
 // d3.json("data/samples.json").then((data)=> {
