@@ -45,13 +45,13 @@ function optionChanged(id) {
  
 function createDemo(data) {
     console.log("hello from create demo");
-    console.log(data.id);
-    console.log(data.ethnicity);
-    console.log(data.gender);
-    console.log(data.age);
-    console.log(data.location);
-    console.log(data.bbtype);
-    console.log(data.wfreq);
+    console.log(`Date: ${data.id}`);
+    console.log(`ethnicity: ${data.ethnicity}`);
+    console.log(`gender: ${data.gender}`);
+    console.log(`age: ${data.age}`);
+    console.log(`location: ${data.location}`);
+    console.log(`bbtype: ${data.bbtype}`);
+    console.log(`wfreq: ${data.wfreq}`);
 }
 
 function createBarChart(data) {
@@ -88,7 +88,7 @@ function createBubble(data, names) {
         text: data.sample_values.map(samp_values =>`size:${samp_values}`),
         mode: 'markers',
         marker: {
-          color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
+          colorscale: ['Earth'],
           size: data.sample_values
         }
     } 
