@@ -49,6 +49,9 @@ function createDemo(data) {
     console.log(data.ethnicity);
     console.log(data.gender);
     console.log(data.age);
+    console.log(data.location);
+    console.log(data.bbtype);
+    console.log(data.wfreq);
 }
 
 function createBarChart(data) {
