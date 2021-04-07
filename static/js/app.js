@@ -89,7 +89,7 @@ function createBarChart(data) {
     var data = [trace1];
 
     var layout = {
-      title: "OTU Chart"
+      title: ""
     };
     Plotly.newPlot("bar", data, layout);
 };
@@ -117,7 +117,7 @@ function createBubble(data, names) {
         title: 'Bubble Chart Hover Text',
         margin: {t: 0},
         hovermode: "closest",
-        xaxis: {Title: "Bubble Chart"},
+        xaxis: {Title: ""},
         margin: {t: 30},
         // margin: {b: 100}
       };
