@@ -1,3 +1,22 @@
+// function demoTable(data) {
+//     d3.json("data/samples.json").then((data)=> {
+//         metadata = data.metadata;
+//         var demoMeta = metadata.filter(d=> d.id==data);
+//         var demoTable = demoMeta[0];
+//     var newVar = d3.select("#sample-metadata");
+//     newVar.html("");
+//     Object.entries(demoTable).forEach(([key, value])=>{
+//         console.log(`Date: ${data.id}`);
+//         console.log(`ethnicity: ${value.ethnicity}`);
+//         console.log(`gender: ${value.gender}`);
+//         console.log(`age: ${value.age}`);
+//         console.log(`location: ${value.location}`);
+//         console.log(`bbtype: ${value.bbtype}`);
+//         console.log(`wfreq: ${value.wfreq}`);
+//     })
+// });
+
+
 var metadata; 
 var names; 
 var samples;
@@ -9,9 +28,6 @@ d3.json("data/samples.json").then((data)=> {
     // console.log(names);
      metadata = data.metadata;
     // console.log(meta);
-    // console.log(Object.keys(samples));
-    // console.log(Object.values(samples));
-    // console.log(Object.entries(samples));
 
     var drop = document.getElementById("selDataset"); 
 
@@ -22,7 +38,9 @@ d3.json("data/samples.json").then((data)=> {
         o.setAttributeNode(attr);
         o.text=item;
         drop.appendChild(o);
+
     });
+    optionChanged(940)
 });
 
 //loop thorugh data to grab data, create functions to be called later
@@ -44,22 +62,22 @@ function optionChanged(id) {
 };
  
 function createDemo(data) {
-    console.log("hello from create demo");
-    console.log(`Date: ${data.id}`);
-    console.log(`ethnicity: ${data.ethnicity}`);
-    console.log(`gender: ${data.gender}`);
-    console.log(`age: ${data.age}`);
-    console.log(`location: ${data.location}`);
-    console.log(`bbtype: ${data.bbtype}`);
-    console.log(`wfreq: ${data.wfreq}`);
+    // console.log("hello from create demo");
+    // console.log(`Date: ${data.id}`);
+    // console.log(`ethnicity: ${data.ethnicity}`);
+    // console.log(`gender: ${data.gender}`);
+    // console.log(`age: ${data.age}`);
+    // console.log(`location: ${data.location}`);
+    // console.log(`bbtype: ${data.bbtype}`);
+    // console.log(`wfreq: ${data.wfreq}`);
 }
 
 function createBarChart(data) {
-    console.log("hello from create bar");
-    console.log(data.id);
-    console.log(data.otu_ids);
-    console.log(data.sample_values);
-    console.log(data.otu_labels);
+    // console.log("hello from create bar");
+    // console.log(data.id);
+    // console.log(data.otu_ids);
+    // console.log(data.sample_values);
+    // console.log(data.otu_labels);
 
     var trace1 = {
         x: data.sample_values.slice(0,10).reverse(),
@@ -77,10 +95,10 @@ function createBarChart(data) {
 };
 
 function createBubble(data, names) {
-    console.log("hello from create bubble");
-    console.log(data.otu_ids);
-    console.log(data.sample_values);
-    console.log(data.otu_labels);
+    // console.log("hello from create bubble");
+    // console.log(data.otu_ids);
+    // console.log(data.sample_values);
+    // console.log(data.otu_labels);
     
     var trace1 = {
         x: data.otu_ids,
@@ -88,17 +106,20 @@ function createBubble(data, names) {
         text: data.sample_values.map(samp_values =>`size:${samp_values}`),
         mode: 'markers',
         marker: {
-          colorscale: ['Earth'],
-          size: data.sample_values
+            size: data.sample_values,
+            color: data.otu_ids,
+            colorscale: 'Earth',
         }
     } 
       var data = [trace1];
       
       var layout = {
         title: 'Bubble Chart Hover Text',
-        showlegend: false,
-        height: 600,
-        width: 600
+        margin: {t: 0},
+        hovermode: "closest",
+        xaxis: {Title: "Bubble Chart"},
+        margin: {t: 30},
+        // margin: {b: 100}
       };
       
       Plotly.newPlot('bubble', data, layout);
