@@ -45,14 +45,14 @@ function createTable(sample) {
     console.log(sample);
     d3.json("data/samples.json").then((data)=> {
         metadata = data.metadata;
-        console.log(data);
-        console.log(metadata);
+        // console.log(data);
+        // console.log(metadata);
         var demoMeta = metadata.filter(d=> parseInt(d.id)==parseInt(sample.id));
-        console.log(demoMeta);
+        // console.log(demoMeta);
         var demoResults = demoMeta[0];
-    var newVar = d3.select("#sample-metadata");
-    newVar.html("");
-    Object.entries(demoResults).forEach(([key, value])=>{
+        var newVar = d3.select("#sample-metadata");
+        newVar.html("");
+        Object.entries(demoResults).forEach(([key, value])=>{
         newVar.append("h6").text(`${key}: ${value}`)
     })
 })
@@ -105,7 +105,6 @@ function createBubble(data, names) {
         hovermode: "closest",
         xaxis: {Title: ""},
         margin: {t: 30},
-        // margin: {b: 100}
       };
       
       Plotly.newPlot('bubble', data, layout);

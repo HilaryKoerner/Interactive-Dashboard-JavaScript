@@ -1,0 +1,12 @@
+names[0]			    #list of ints stored as text
+metadata[0].id			#int
+metadata[0].ethnicity	#string
+metadata[0].gender		#string
+metadata[0].age			#int
+metadata[0].location	#string
+metadata[0].bbtype		#string
+metadata[0].wfreq		#int
+samples[0].id 			#int stored as text
+samples[0].otu_ids   		#list of ints
+samples[0].sample_values   	#list of ints
+samples[0].otu_labels   	#list of string (semi-colon separated values in this string)
