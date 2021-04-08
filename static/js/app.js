@@ -1,20 +1,20 @@
-function demoTable(data) {
-    d3.json("data/samples.json").then((data)=> {
-        metadata = data.metadata;
-        var demoMeta = metadata.filter(d=> d.id==data);
-        var demoTable = demoMeta[0];
-    var newVar = d3.select("#sample-metadata");
-    newVar.html("");
-    Object.entries(demoTable).forEach(([key, value])=>{
-        console.log(`Date: ${data.id}`);
-        console.log(`ethnicity: ${value.ethnicity}`);
-        console.log(`gender: ${value.gender}`);
-        console.log(`age: ${value.age}`);
-        console.log(`location: ${value.location}`);
-        console.log(`bbtype: ${value.bbtype}`);
-        console.log(`wfreq: ${value.wfreq}`);
-    })
-});
+// function demoTable(data) {
+//     d3.json("data/samples.json").then((data)=> {
+//         metadata = data.metadata;
+//         var demoMeta = metadata.filter(d=> d.id==data);
+//         var demoTable = demoMeta[0];
+//     var newVar = d3.select("#sample-metadata");
+//     newVar.html("");
+//     Object.entries(data).forEach(([key, value])=>{
+//         console.log(`Date: ${data.id}`);
+//         console.log(`ethnicity: ${value.ethnicity}`);
+//         console.log(`gender: ${value.gender}`);
+//         console.log(`age: ${value.age}`);
+//         console.log(`location: ${value.location}`);
+//         console.log(`bbtype: ${value.bbtype}`);
+//         console.log(`wfreq: ${value.wfreq}`);
+//     })
+// });
 
 
 var metadata; 
@@ -103,7 +103,7 @@ function createBubble(data, names) {
     var trace1 = {
         x: data.otu_ids,
         y: data.sample_values,
-        text: data.sample_values.map(samp_values =>`size:${samp_values}`),
+        text: data.otu_labels.map(samp_values =>samp_values),
         mode: 'markers',
         marker: {
             size: data.sample_values,
