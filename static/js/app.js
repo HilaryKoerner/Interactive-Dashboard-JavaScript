@@ -1,21 +1,19 @@
-// function demoTable(data) {
-//     d3.json("data/samples.json").then((data)=> {
-//         metadata = data.metadata;
-//         var demoMeta = metadata.filter(d=> d.id==data);
-//         var demoTable = demoMeta[0];
-//     var newVar = d3.select("#sample-metadata");
-//     newVar.html("");
-//     Object.entries(data).forEach(([key, value])=>{
-//         console.log(`Date: ${data.id}`);
-//         console.log(`ethnicity: ${value.ethnicity}`);
-//         console.log(`gender: ${value.gender}`);
-//         console.log(`age: ${value.age}`);
-//         console.log(`location: ${value.location}`);
-//         console.log(`bbtype: ${value.bbtype}`);
-//         console.log(`wfreq: ${value.wfreq}`);
-//     })
-// });
-
+function demoTable(sample) {
+    console.log(sample);
+    d3.json("data/samples.json").then((data)=> {
+        metadata = data.metadata;
+        console.log(data);
+        console.log(metadata);
+        var demoMeta = metadata.filter(d=> parseInt(d.id)==parseInt(sample.id));
+        console.log(demoMeta);
+        var demoResults = demoMeta[0];
+    var newVar = d3.select("#sample-metadata");
+    newVar.html("");
+    Object.entries(demoResults).forEach(([key, value])=>{
+        newVar.append("h6").text(`${key}: ${value}`)
+    })
+})
+}
 
 var metadata; 
 var names; 
@@ -51,7 +49,7 @@ function optionChanged(id) {
         }
     }
     //create demographic chart
-    createDemo(metadata[i]);
+    demoTable(metadata[i]);
     //create plotly bar chart
     createBarChart(samples[i], names[i]);
     //create bubblechart
@@ -61,16 +59,16 @@ function optionChanged(id) {
 
 };
  
-function createDemo(data) {
-    // console.log("hello from create demo");
-    // console.log(`Date: ${data.id}`);
-    // console.log(`ethnicity: ${data.ethnicity}`);
-    // console.log(`gender: ${data.gender}`);
-    // console.log(`age: ${data.age}`);
-    // console.log(`location: ${data.location}`);
-    // console.log(`bbtype: ${data.bbtype}`);
-    // console.log(`wfreq: ${data.wfreq}`);
-}
+// function createDemo(data) {
+//     // console.log("hello from create demo");
+//     // console.log(`Date: ${data.id}`);
+//     // console.log(`ethnicity: ${data.ethnicity}`);
+//     // console.log(`gender: ${data.gender}`);
+//     // console.log(`age: ${data.age}`);
+//     // console.log(`location: ${data.location}`);
+//     // console.log(`bbtype: ${data.bbtype}`);
+//     // console.log(`wfreq: ${data.wfreq}`);
+// }
 
 function createBarChart(data) {
     // console.log("hello from create bar");
@@ -114,7 +112,7 @@ function createBubble(data, names) {
       var data = [trace1];
       
       var layout = {
-        title: 'Bubble Chart Hover Text',
+        title: '',
         margin: {t: 0},
         hovermode: "closest",
         xaxis: {Title: ""},
