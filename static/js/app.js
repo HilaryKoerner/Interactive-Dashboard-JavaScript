@@ -1,20 +1,3 @@
-function demoTable(sample) {
-    console.log(sample);
-    d3.json("data/samples.json").then((data)=> {
-        metadata = data.metadata;
-        console.log(data);
-        console.log(metadata);
-        var demoMeta = metadata.filter(d=> parseInt(d.id)==parseInt(sample.id));
-        console.log(demoMeta);
-        var demoResults = demoMeta[0];
-    var newVar = d3.select("#sample-metadata");
-    newVar.html("");
-    Object.entries(demoResults).forEach(([key, value])=>{
-        newVar.append("h6").text(`${key}: ${value}`)
-    })
-})
-}
-
 var metadata; 
 var names; 
 var samples;
@@ -49,26 +32,31 @@ function optionChanged(id) {
         }
     }
     //create demographic chart
-    demoTable(metadata[i]);
+    createTable(metadata[i]);
     //create plotly bar chart
     createBarChart(samples[i], names[i]);
     //create bubblechart
     createBubble(samples[i], names[i]);
 
     console.log(i);
-
 };
- 
-// function createDemo(data) {
-//     // console.log("hello from create demo");
-//     // console.log(`Date: ${data.id}`);
-//     // console.log(`ethnicity: ${data.ethnicity}`);
-//     // console.log(`gender: ${data.gender}`);
-//     // console.log(`age: ${data.age}`);
-//     // console.log(`location: ${data.location}`);
-//     // console.log(`bbtype: ${data.bbtype}`);
-//     // console.log(`wfreq: ${data.wfreq}`);
-// }
+
+function createTable(sample) {
+    console.log(sample);
+    d3.json("data/samples.json").then((data)=> {
+        metadata = data.metadata;
+        console.log(data);
+        console.log(metadata);
+        var demoMeta = metadata.filter(d=> parseInt(d.id)==parseInt(sample.id));
+        console.log(demoMeta);
+        var demoResults = demoMeta[0];
+    var newVar = d3.select("#sample-metadata");
+    newVar.html("");
+    Object.entries(demoResults).forEach(([key, value])=>{
+        newVar.append("h6").text(`${key}: ${value}`)
+    })
+})
+}
 
 function createBarChart(data) {
     // console.log("hello from create bar");
