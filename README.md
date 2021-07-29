@@ -11,6 +11,8 @@
 
 ![bellyb-vsc3](https://user-images.githubusercontent.com/74504885/127411925-b6c20c14-aad2-425d-b405-9b0096bc3140.PNG)
 
+To create the bar chart I pulled the "option" input from the user to take the ID number and then fed it in to a function. Within the function, I created a trace that pulled in the top ten sample values and the corresponding otu IDs and labels. I reversed the top ten so they were in descending order and called them as a horitzontal bar. 
+
 ![bellyb-vsc4](https://user-images.githubusercontent.com/74504885/127411941-baf6d3dd-b205-4aa3-a33e-f56987151856.PNG)
 
 Similar to the bar chart, I created a bubble chart by feeding in the user input to a function. Within the function I created a trace that pulled all otu IDs and sample values. I used the samples values to create the size of the bubble and set the color scale to Earth. 
@@ -23,5 +25,5 @@ This challenge encorporates javaScript and Plotly to create charts that take a u
 
 To create the demographic table I filtered the data on the user ID input and pulled the key, value pairs for the data. I then appended the pulled info as text. 
 
-To create the bar chart I pulled the "option" input from the user to take the ID number and then fed it in to a function. Within the function, I created a trace that pulled in the top ten sample values and the corresponding otu IDs and labels. I reversed the top ten so they were in descending order and called them as a horitzontal bar. 
+
 
