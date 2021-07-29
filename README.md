@@ -1,4 +1,5 @@
-# plotly_challenge
+# Belloy Button Biodiversity
+
 
 This challenge encorporates javaScript and Plotly to create charts that take a users input and displays the related results. To complete this challenge I created a table of demographic information and a bar chart and bubble chart each with a hover feature to display additional information. 
 
