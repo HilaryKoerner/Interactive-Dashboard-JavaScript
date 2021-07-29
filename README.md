@@ -5,9 +5,13 @@
 
 ![bellyb-http](https://user-images.githubusercontent.com/74504885/127411877-16539b82-40fd-459b-b79e-a849bdb5fdb0.PNG)
 
+This challenge encorporates javaScript and Plotly to create charts that take a users input and displays the related results. To complete this challenge I created a table of demographic information and a bar chart and bubble chart each with a hover feature to display additional information. 
+
 ![bellyb-vsc1](https://user-images.githubusercontent.com/74504885/127411898-99431069-6245-483f-8fd7-15d934f15dc4.PNG)
 
 ![bellyb-vsc2](https://user-images.githubusercontent.com/74504885/127411910-456808f0-4296-4cc2-ade7-9a89c8be2004.PNG)
+
+To create the demographic table I filtered the data on the user ID input and pulled the key, value pairs for the data. I then appended the pulled info as text. 
 
 ![bellyb-vsc3](https://user-images.githubusercontent.com/74504885/127411925-b6c20c14-aad2-425d-b405-9b0096bc3140.PNG)
 
@@ -21,9 +25,6 @@ Similar to the bar chart, I created a bubble chart by feeding in the user input 
 
 
 
-This challenge encorporates javaScript and Plotly to create charts that take a users input and displays the related results. To complete this challenge I created a table of demographic information and a bar chart and bubble chart each with a hover feature to display additional information. 
-
-To create the demographic table I filtered the data on the user ID input and pulled the key, value pairs for the data. I then appended the pulled info as text. 
 
 
 
