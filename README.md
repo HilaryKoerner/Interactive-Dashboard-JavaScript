@@ -8,6 +8,9 @@
 
 ![bellyb-vsc1](https://user-images.githubusercontent.com/74504885/127411898-99431069-6245-483f-8fd7-15d934f15dc4.PNG)
 
+![bellyb-vsc2](https://user-images.githubusercontent.com/74504885/127411910-456808f0-4296-4cc2-ade7-9a89c8be2004.PNG)
+
+
 
 
 This challenge encorporates javaScript and Plotly to create charts that take a users input and displays the related results. To complete this challenge I created a table of demographic information and a bar chart and bubble chart each with a hover feature to display additional information. 
