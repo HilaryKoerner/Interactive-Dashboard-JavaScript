@@ -1,6 +1,6 @@
 # Belloy Button Biodiversity
 
-![bellyb-bubbles](https://user-images.githubusercontent.com/74504885/127411836-eebfdb37-68de-4e2f-8e1b-d8ae78919463.PNG)
+
 
 ##Running the script on local host
 
